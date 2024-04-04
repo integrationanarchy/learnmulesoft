@@ -22,11 +22,6 @@ jobs:
       - name: Build Project
         run: mvn clean install -DskipTests
 
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env: 
-          SONAR_TOKEN: 8f9d3afb698037e9269cb21f70da74de2dcc0066 
-
       - name: Build and Analyze
         env:
           SONAR_TOKEN: 8f9d3afb698037e9269cb21f70da74de2dcc0066 

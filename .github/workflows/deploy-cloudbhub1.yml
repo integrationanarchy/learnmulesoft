@@ -35,7 +35,7 @@ jobs:
 
       - name: Build and Analyze
         env:
-          SONAR_TOKEN: 9184083250f81294799ad486968861e2681b83ad
+          SONAR_TOKEN: 3d85a84ecc0964e8c6ee40e5992383cf30236013
           SONAR_HOST_URL: 'https://sonarcloud.io/'
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=integrationanarchy_learnmulesoft          
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=learnmulesoft_learnmulesoft          
 

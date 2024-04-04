@@ -18,20 +18,12 @@ jobs:
         with:
           java-version: 17
           distribution: 'zulu' # Alternative distribution options are available.
-      - name: Cache SonarCloud packages
-        uses: actions/cache@v3
-        with:
-          path: ~/.sonar/cache
-          key: ${{ runner.os }}-sonar
-          restore-keys: ${{ runner.os }}-sonar
-      - name: Cache Maven packages
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
-      - name: Build and analyze
+      
+      - name: Build Project
+        run: mvn clean install -DskipTests
+
+      - name: SonarQube Scan
+        run: sonarsource/sonarqube-scan-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: 8f9d3afb698037e9269cb21f70da74de2dcc0066
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=integrationanarchy_learnmulesoft
+          SONAR_TOKEN: 8f9d3afb698037e9269cb21f70da74de2dcc0066 
+          SONAR_HOST_URL: 'https://sonarcloud.io/'

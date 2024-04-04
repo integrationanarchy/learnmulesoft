@@ -22,8 +22,8 @@ jobs:
       - name: Build Project
         run: mvn clean install -DskipTests
 
-      - name: SonarQube Scan
-        run: sonarsource/sonarqube-scan-action@master
+      - name: Build and Analyze
         env:
           SONAR_TOKEN: 8f9d3afb698037e9269cb21f70da74de2dcc0066 
           SONAR_HOST_URL: 'https://sonarcloud.io/'
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=integrationanarchy_learnmulesoft          

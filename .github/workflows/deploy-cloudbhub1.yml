@@ -19,20 +19,23 @@ jobs:
           java-version: 17
           distribution: 'zulu' # Alternative distribution options are available.
 
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+          
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2          
+
       - name: Build and Analyze
         env:
-          SONAR_TOKEN: 8f9d3afb698037e9269cb21f70da74de2dcc0066 
+          SONAR_TOKEN: 9184083250f81294799ad486968861e2681b83ad
           SONAR_HOST_URL: 'https://sonarcloud.io/'
         run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=integrationanarchy_learnmulesoft          
 
-  sonarcloud:
-    name: SonarCloud
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0  
-      - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@master
-        env: 
-          SONAR_TOKEN: 8f9d3afb698037e9269cb21f70da74de2dcc0066

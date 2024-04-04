@@ -13,6 +13,7 @@
 		<mule.maven.plugin.version>4.1.0</mule.maven.plugin.version>
 		<sonar.projectKey>integrationanarchy_learnmulesoft</sonar.projectKey>
 		<sonar.organization>integrationanarchy</sonar.organization>
+		<sonar.sources>src/</sonar.sources>
 	</properties>		
 
 	<build>

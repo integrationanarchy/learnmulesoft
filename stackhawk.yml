@@ -1,11 +1,11 @@
-# -- stackhawk configuration for MuleSoft-Testing --
+# -- stackhawk configuration for Mulesoft - In --
 app:
   # -- An applicationId obtained from the StackHawk platform. --
-  applicationId: 3d06f2a7-bd3e-47b4-98ab-3c768987466d # (required)
+  applicationId: dbc75abe-ecbf-46c8-9227-8bbded06a46b # (required)
   # -- The environment for the applicationId defined in the StackHawk platform. --
-  env: Development # (required)
+  env: Pre-Production # (required)
   # -- The url of your application to scan --
-  host: http://helloworld-demo.us-e2.cloudhub.io # (required)
+  host: http://helloworld-demo.us-e2.cloudhub.io/helloWorld # (required)
 
 
 # -- Customized Configuration for GraphQL/SOAP/OpenAPI, add here --

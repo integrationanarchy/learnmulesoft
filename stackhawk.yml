@@ -1,7 +1,7 @@
-# -- stackhawk configuration for MuleSoft Integration --
+# -- stackhawk configuration for MuleSoft-Testing --
 app:
   # -- An applicationId obtained from the StackHawk platform. --
-  applicationId: 4972e7d5-f09f-4006-9aed-cdbae1c75949 # (required)
+  applicationId: 3d06f2a7-bd3e-47b4-98ab-3c768987466d # (required)
   # -- The environment for the applicationId defined in the StackHawk platform. --
   env: Development # (required)
   # -- The url of your application to scan --
@@ -9,11 +9,6 @@ app:
 
 
 # -- Customized Configuration for GraphQL/SOAP/OpenAPI, add here --
-  openApiConf:
-    path: /helloWorld # OR...
-#     filePath: openApi.json
-  autoPolicy: true
-  autoInputVectors: true
   # Configuration Docs: https://docs.stackhawk.com/hawkscan/configuration/
 
 # -- If Authenticated Scanning is needed, add here --
